@@ -1,0 +1,33 @@
+{% load static %}
+
+{% static 'test.css' %}
+<link rel="stylesheet" href="{% static 'test.css' %}">
+<br>
+first year: {{ first_year_score }}
+<br>
+Second year: {{ second_year_score }}
+<br>
+Third year: {{ third_year_score }}
+<br>
+Fourth year: {{ fourth_year_score }}
+<br>
+
+{% for event in events %}
+<br>
+{{ event.name }}
+<br>
+    {% for athlete in event.first.all %}
+    1. | {{athlete.name}} | {{athlete.year}} | {{athlete.batch}} |
+    <br>
+    {% endfor %}
+    <br>
+    {% for athlete in event.second.all %}
+    2. | {{athlete.name}} | {{athlete.year}} | {{athlete.batch}} |
+    <br>
+    {% endfor %}
+    <br>
+    {% for athlete in event.third.all %}
+    3. | {{athlete.name}} | {{athlete.year}} | {{athlete.batch}} |
+    <br>
+    {% endfor %}
+{% endfor %}
