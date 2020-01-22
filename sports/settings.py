@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'it)(c*s2phg2=cph+u=p@$_6hkn^_8)7wj8kf*)4i*fx^opi31'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -128,8 +128,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 #     os.path.join(BASE_DIR, 'static'),
 # )
 
-import django_heroku
-django_heroku.settings(locals())
 
 LOGGING = {
     'version': 1,
@@ -163,3 +161,7 @@ LOGGING = {
         },
     }
 }
+
+
+import django_heroku
+django_heroku.settings(locals())
