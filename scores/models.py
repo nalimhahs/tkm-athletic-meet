@@ -18,8 +18,11 @@ class Event(models.Model):
 
     name = models.CharField(max_length=50)
     first = models.ManyToManyField(Athlete, related_name='first')
+    first_points = models.IntegerField()
     second = models.ManyToManyField(Athlete, related_name='second')
+    second_points = models.IntegerField()
     third = models.ManyToManyField(Athlete, related_name='third')
+    third_points = models.IntegerField()
 
     def __str__(self):
         return self.name
