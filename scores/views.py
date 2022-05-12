@@ -17,6 +17,7 @@ def main_view(request):
     second_year_score = 0
     third_year_score = 0
     fourth_year_score = 0
+    pg_score = 0
 
     for event in Event.objects.filter(first__year=1):
         first_year_score += event.first_points
@@ -53,5 +54,14 @@ def main_view(request):
     
     for event in Event.objects.filter(third__year=4):
         fourth_year_score += event.third_points
+    
+    for event in Event.objects.filter(first__year=5):
+        pg_score += event.first_points
 
-    return render(request, 'index.html', { 'events': events, 'first_year_score': first_year_score, 'second_year_score': second_year_score, 'third_year_score': third_year_score, 'fourth_year_score': fourth_year_score })
+    for event in Event.objects.filter(second__year=5):
+        pg_score += event.second_points
+    
+    for event in Event.objects.filter(third__year=5):
+        pg_score += event.third_points
+
+    return render(request, 'index.html', { 'events': events, 'first_year_score': first_year_score, 'second_year_score': second_year_score, 'third_year_score': third_year_score, 'fourth_year_score': fourth_year_score, 'pg_score': pg_score })

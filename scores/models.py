@@ -5,7 +5,7 @@ from django.db import models
 
 class Athlete(models.Model):
 
-    year_choices = [(1, 'First Year'), (2, 'Second Year'), (3, 'Third Year'), (4, 'Fourth Year')]
+    year_choices = [(1, 'First Year'), (2, 'Second Year'), (3, 'Third Year'), (4, 'Fourth Year'), (5, 'Postgraduate')]
 
     name = models.CharField(max_length=100)
     year = models.IntegerField(choices=year_choices)
